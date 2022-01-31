@@ -1,0 +1,5 @@
+api:
+  auth:       /auth
+  booking:    /booking
+  ping:       /ping
+  
