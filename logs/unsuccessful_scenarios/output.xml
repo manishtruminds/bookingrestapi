@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.10.1 on linux)" generated="20220201 22:40:49.647" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.3 (Python 3.10.1 on linux)" generated="20220201 22:57:32.564" rpa="false" schemaversion="2">
 <suite id="s1" name="Unsuccessful Scenarios" source="/home/genericspecimen/repos/work/restful-booker/TestSuites/unsuccessful_scenarios.robot">
 <test id="s1-t1" name="Health Check">
 <kw name="GET" library="RequestsLibrary">
@@ -7,30 +7,30 @@
 <arg>${base_url}${api}[ping]</arg>
 <arg>expected_status=201</arg>
 <doc>Sends a GET request.</doc>
-<msg timestamp="20220201 22:40:51.356" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/ping 
+<msg timestamp="20220201 22:57:33.998" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/ping 
  path_url=/ping 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20220201 22:40:51.357" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/ping 
+<msg timestamp="20220201 22:57:33.999" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/ping 
  status=201, reason=Created 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '7', 'Etag': 'W/"7-rM9AyJuqT6iOan/xHh+AW+7K/T8"', 'Date': 'Tue, 01 Feb 2022 17:10:39 GMT', 'Via': '1.1 vegur'} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '7', 'Etag': 'W/"7-rM9AyJuqT6iOan/xHh+AW+7K/T8"', 'Date': 'Tue, 01 Feb 2022 17:27:22 GMT', 'Via': '1.1 vegur'} 
  body=Created 
  </msg>
-<msg timestamp="20220201 22:40:51.357" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20220201 22:40:49.780" endtime="20220201 22:40:51.357"/>
+<msg timestamp="20220201 22:57:33.999" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:32.688" endtime="20220201 22:57:33.999"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:40:51.358" endtime="20220201 22:40:51.361"/>
+<status status="PASS" starttime="20220201 22:57:34.000" endtime="20220201 22:57:34.002"/>
 </kw>
 <doc>Check whether the API is up and running</doc>
 <tag>API</tag>
 <tag>HealthCheck</tag>
 <tag>Ping</tag>
 <tag>Valid</tag>
-<status status="PASS" starttime="20220201 22:40:49.779" endtime="20220201 22:40:51.361"/>
+<status status="PASS" starttime="20220201 22:57:32.688" endtime="20220201 22:57:34.002"/>
 </test>
 <test id="s1-t2" name="Invalid Ping Endpoint Request">
 <kw name="GET" library="RequestsLibrary">
@@ -38,36 +38,36 @@
 <arg>${base_url}${api}[ping]1</arg>
 <arg>expected_status=404</arg>
 <doc>Sends a GET request.</doc>
-<msg timestamp="20220201 22:40:52.662" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/ping1 
+<msg timestamp="20220201 22:57:35.440" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/ping1 
  path_url=/ping1 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20220201 22:40:52.663" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/ping1 
+<msg timestamp="20220201 22:57:35.440" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/ping1 
  status=404, reason=Not Found 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-0gXL1ngzMqISxa6S1zx3F4wtLyg"', 'Date': 'Tue, 01 Feb 2022 17:10:41 GMT', 'Via': '1.1 vegur'} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-0gXL1ngzMqISxa6S1zx3F4wtLyg"', 'Date': 'Tue, 01 Feb 2022 17:27:24 GMT', 'Via': '1.1 vegur'} 
  body=Not Found 
  </msg>
-<msg timestamp="20220201 22:40:52.664" level="INFO">${response} = &lt;Response [404]&gt;</msg>
-<status status="PASS" starttime="20220201 22:40:51.366" endtime="20220201 22:40:52.665"/>
+<msg timestamp="20220201 22:57:35.441" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:34.005" endtime="20220201 22:57:35.441"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:40:52.665" endtime="20220201 22:40:52.667"/>
+<status status="PASS" starttime="20220201 22:57:35.441" endtime="20220201 22:57:35.442"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${response.reason}</arg>
 <arg>Not Found</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220201 22:40:52.667" endtime="20220201 22:40:52.670"/>
+<status status="PASS" starttime="20220201 22:57:35.442" endtime="20220201 22:57:35.443"/>
 </kw>
 <doc>Try to send a request to an invalid endpoint</doc>
 <tag>API</tag>
 <tag>Invalid</tag>
 <tag>InvalidEndpoint</tag>
 <tag>Ping</tag>
-<status status="PASS" starttime="20220201 22:40:51.363" endtime="20220201 22:40:52.671"/>
+<status status="PASS" starttime="20220201 22:57:34.004" endtime="20220201 22:57:35.443"/>
 </test>
 <test id="s1-t3" name="Invalid Health Check Request">
 <kw name="POST" library="RequestsLibrary">
@@ -75,52 +75,52 @@
 <arg>${base_url}${api}[ping]</arg>
 <arg>expected_status=404</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220201 22:40:54.054" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/ping 
+<msg timestamp="20220201 22:57:36.647" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/ping 
  path_url=/ping 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg timestamp="20220201 22:40:54.054" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/ping 
+<msg timestamp="20220201 22:57:36.647" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/ping 
  status=404, reason=Not Found 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-0gXL1ngzMqISxa6S1zx3F4wtLyg"', 'Date': 'Tue, 01 Feb 2022 17:10:42 GMT', 'Via': '1.1 vegur'} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-0gXL1ngzMqISxa6S1zx3F4wtLyg"', 'Date': 'Tue, 01 Feb 2022 17:27:25 GMT', 'Via': '1.1 vegur'} 
  body=Not Found 
  </msg>
-<msg timestamp="20220201 22:40:54.055" level="INFO">${response} = &lt;Response [404]&gt;</msg>
-<status status="PASS" starttime="20220201 22:40:52.675" endtime="20220201 22:40:54.056"/>
+<msg timestamp="20220201 22:57:36.648" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:35.445" endtime="20220201 22:57:36.648"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:40:54.057" endtime="20220201 22:40:54.058"/>
+<status status="PASS" starttime="20220201 22:57:36.648" endtime="20220201 22:57:36.648"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${response.reason}</arg>
 <arg>Not Found</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220201 22:40:54.058" endtime="20220201 22:40:54.062"/>
+<status status="PASS" starttime="20220201 22:57:36.649" endtime="20220201 22:57:36.649"/>
 </kw>
 <doc>Try to send a POST request to /ping instead of GET</doc>
 <tag>API</tag>
 <tag>HealthCheck</tag>
 <tag>Invalid</tag>
 <tag>Ping</tag>
-<status status="PASS" starttime="20220201 22:40:52.672" endtime="20220201 22:40:54.062"/>
+<status status="PASS" starttime="20220201 22:57:35.444" endtime="20220201 22:57:36.650"/>
 </test>
 <test id="s1-t4" name="Create Token With Valid Credentials">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${headers}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220201 22:40:54.067" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220201 22:40:54.066" endtime="20220201 22:40:54.067"/>
+<msg timestamp="20220201 22:57:36.651" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220201 22:57:36.651" endtime="20220201 22:57:36.651"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${body_json}</var>
 <arg>username=${env}[admin_username]</arg>
 <arg>password=${env}[admin_password]</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220201 22:40:54.069" level="INFO">${body_json} = {'username': 'admin', 'password': 'password123'}</msg>
-<status status="PASS" starttime="20220201 22:40:54.067" endtime="20220201 22:40:54.070"/>
+<msg timestamp="20220201 22:57:36.652" level="INFO">${body_json} = {'username': 'admin', 'password': 'password123'}</msg>
+<status status="PASS" starttime="20220201 22:57:36.651" endtime="20220201 22:57:36.652"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -129,66 +129,66 @@
 <arg>json=${body_json}</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220201 22:40:55.399" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
+<msg timestamp="20220201 22:57:37.846" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
  path_url=/auth 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '48'} 
  body=b'{"username": "admin", "password": "password123"}' 
  </msg>
-<msg timestamp="20220201 22:40:55.399" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
+<msg timestamp="20220201 22:57:37.846" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
  status=200, reason=OK 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '27', 'Etag': 'W/"1b-V2YonJLRPWB/IRez2j/G/R6HAyU"', 'Date': 'Tue, 01 Feb 2022 17:10:43 GMT', 'Via': '1.1 vegur'} 
- body={"token":"c2d67eb563e48db"} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '27', 'Etag': 'W/"1b-w5MSaUcp5a6O4R7Cwq5vWDBF5b0"', 'Date': 'Tue, 01 Feb 2022 17:27:26 GMT', 'Via': '1.1 vegur'} 
+ body={"token":"68f24a46039807e"} 
  </msg>
-<msg timestamp="20220201 22:40:55.400" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220201 22:40:54.070" endtime="20220201 22:40:55.400"/>
+<msg timestamp="20220201 22:57:37.846" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:36.652" endtime="20220201 22:57:37.847"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:40:55.400" endtime="20220201 22:40:55.402"/>
+<status status="PASS" starttime="20220201 22:57:37.847" endtime="20220201 22:57:37.848"/>
 </kw>
 <kw name="Get Dictionary Keys" library="Collections">
 <var>${keys}</var>
 <arg>${response.json()}</arg>
 <doc>Returns keys of the given ``dictionary`` as a list.</doc>
-<msg timestamp="20220201 22:40:55.403" level="INFO">${keys} = ['token']</msg>
-<status status="PASS" starttime="20220201 22:40:55.402" endtime="20220201 22:40:55.403"/>
+<msg timestamp="20220201 22:57:37.849" level="INFO">${keys} = ['token']</msg>
+<status status="PASS" starttime="20220201 22:57:37.848" endtime="20220201 22:57:37.849"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${keys}</arg>
 <arg>token</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20220201 22:40:55.403" endtime="20220201 22:40:55.403"/>
+<status status="PASS" starttime="20220201 22:57:37.849" endtime="20220201 22:57:37.850"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${auth_token}</arg>
 <arg>${response.json()}[token]</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20220201 22:40:55.407" level="INFO">${auth_token} = c2d67eb563e48db</msg>
-<status status="PASS" starttime="20220201 22:40:55.404" endtime="20220201 22:40:55.407"/>
+<msg timestamp="20220201 22:57:37.852" level="INFO">${auth_token} = 68f24a46039807e</msg>
+<status status="PASS" starttime="20220201 22:57:37.850" endtime="20220201 22:57:37.852"/>
 </kw>
 <doc>Create (POST) an auth token with valid credentials (to be used later in PUT, PATCH, DELETE testcases)</doc>
 <tag>API</tag>
 <tag>Auth</tag>
 <tag>CreateToken</tag>
 <tag>Valid</tag>
-<status status="PASS" starttime="20220201 22:40:54.063" endtime="20220201 22:40:55.407"/>
+<status status="PASS" starttime="20220201 22:57:36.650" endtime="20220201 22:57:37.852"/>
 </test>
 <test id="s1-t5" name="Create Token With Invalid Credentials">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${headers}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220201 22:40:55.410" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220201 22:40:55.409" endtime="20220201 22:40:55.410"/>
+<msg timestamp="20220201 22:57:37.853" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220201 22:57:37.853" endtime="20220201 22:57:37.854"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${body_json}</var>
 <arg>username=${testdata}[invalid_admin_username]</arg>
 <arg>password=${testdata}[invalid_admin_password]</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220201 22:40:55.410" level="INFO">${body_json} = {'username': 'abc', 'password': 123}</msg>
-<status status="PASS" starttime="20220201 22:40:55.410" endtime="20220201 22:40:55.411"/>
+<msg timestamp="20220201 22:57:37.854" level="INFO">${body_json} = {'username': 'abc', 'password': 123}</msg>
+<status status="PASS" starttime="20220201 22:57:37.854" endtime="20220201 22:57:37.854"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -197,36 +197,36 @@
 <arg>json=${body_json}</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220201 22:40:56.767" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
+<msg timestamp="20220201 22:57:39.059" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
  path_url=/auth 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '36'} 
  body=b'{"username": "abc", "password": 123}' 
  </msg>
-<msg timestamp="20220201 22:40:56.767" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
+<msg timestamp="20220201 22:57:39.059" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
  status=200, reason=OK 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '28', 'Etag': 'W/"1c-J3EiwfZwVQjKTKvpvazUfTni8fI"', 'Date': 'Tue, 01 Feb 2022 17:10:45 GMT', 'Via': '1.1 vegur'} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '28', 'Etag': 'W/"1c-J3EiwfZwVQjKTKvpvazUfTni8fI"', 'Date': 'Tue, 01 Feb 2022 17:27:27 GMT', 'Via': '1.1 vegur'} 
  body={"reason":"Bad credentials"} 
  </msg>
-<msg timestamp="20220201 22:40:56.767" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220201 22:40:55.411" endtime="20220201 22:40:56.767"/>
+<msg timestamp="20220201 22:57:39.060" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:37.855" endtime="20220201 22:57:39.060"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:40:56.768" endtime="20220201 22:40:56.769"/>
+<status status="PASS" starttime="20220201 22:57:39.061" endtime="20220201 22:57:39.062"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${response.json()}[reason]</arg>
 <arg>Bad credentials</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220201 22:40:56.769" endtime="20220201 22:40:56.770"/>
+<status status="PASS" starttime="20220201 22:57:39.062" endtime="20220201 22:57:39.063"/>
 </kw>
 <doc>Try to create (POST) an auth token with invalid credentials</doc>
 <tag>API</tag>
 <tag>Auth</tag>
 <tag>CreateToken</tag>
 <tag>Invalid</tag>
-<status status="PASS" starttime="20220201 22:40:55.408" endtime="20220201 22:40:56.770"/>
+<status status="PASS" starttime="20220201 22:57:37.852" endtime="20220201 22:57:39.063"/>
 </test>
 <test id="s1-t6" name="Create Booking With Missing Booking FirstName Field">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -234,15 +234,15 @@
 <arg>Content-Type=application/json</arg>
 <arg>Accept=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220201 22:40:56.772" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json'}</msg>
-<status status="PASS" starttime="20220201 22:40:56.772" endtime="20220201 22:40:56.772"/>
+<msg timestamp="20220201 22:57:39.065" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json'}</msg>
+<status status="PASS" starttime="20220201 22:57:39.064" endtime="20220201 22:57:39.065"/>
 </kw>
 <kw name="Load JSON From File" library="JSONLibrary">
 <var>${body_json}</var>
 <arg>${EXECDIR}/Variables/json/new_invalid_booking.json</arg>
 <doc>Load JSON from file.</doc>
-<msg timestamp="20220201 22:40:56.773" level="INFO">${body_json} = {'lastname': 'Brown', 'totalprice': 111, 'depositpaid': True, 'bookingdates': {'checkin': '2018-01-01', 'checkout': '2019-01-01'}, 'additionalneeds': 'Breakfast'}</msg>
-<status status="PASS" starttime="20220201 22:40:56.772" endtime="20220201 22:40:56.773"/>
+<msg timestamp="20220201 22:57:39.066" level="INFO">${body_json} = {'lastname': 'Brown', 'totalprice': 111, 'depositpaid': True, 'bookingdates': {'checkin': '2018-01-01', 'checkout': '2019-01-01'}, 'additionalneeds': 'Breakfast'}</msg>
+<status status="PASS" starttime="20220201 22:57:39.065" endtime="20220201 22:57:39.066"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -251,36 +251,36 @@
 <arg>json=${body_json}</arg>
 <arg>expected_status=500</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220201 22:40:58.384" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/booking 
+<msg timestamp="20220201 22:57:40.233" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/booking 
  path_url=/booking 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '162'} 
  body=b'{"lastname": "Brown", "totalprice": 111, "depositpaid": true, "bookingdates": {"checkin": "2018-01-01", "checkout": "2019-01-01"}, "additionalneeds": "Breakfast"}' 
  </msg>
-<msg timestamp="20220201 22:40:58.385" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/booking 
+<msg timestamp="20220201 22:57:40.234" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/booking 
  status=500, reason=Internal Server Error 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '21', 'Etag': 'W/"15-/6VXivhc2MKdLfIkLcUE47K6aH0"', 'Date': 'Tue, 01 Feb 2022 17:10:46 GMT', 'Via': '1.1 vegur'} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '21', 'Etag': 'W/"15-/6VXivhc2MKdLfIkLcUE47K6aH0"', 'Date': 'Tue, 01 Feb 2022 17:27:28 GMT', 'Via': '1.1 vegur'} 
  body=Internal Server Error 
  </msg>
-<msg timestamp="20220201 22:40:58.385" level="INFO">${response} = &lt;Response [500]&gt;</msg>
-<status status="PASS" starttime="20220201 22:40:56.773" endtime="20220201 22:40:58.385"/>
+<msg timestamp="20220201 22:57:40.234" level="INFO">${response} = &lt;Response [500]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:39.066" endtime="20220201 22:57:40.234"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:40:58.386" endtime="20220201 22:40:58.389"/>
+<status status="PASS" starttime="20220201 22:57:40.234" endtime="20220201 22:57:40.235"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${response.reason}</arg>
 <arg>Internal Server Error</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220201 22:40:58.390" endtime="20220201 22:40:58.393"/>
+<status status="PASS" starttime="20220201 22:57:40.235" endtime="20220201 22:57:40.236"/>
 </kw>
 <doc>Try to create (POST) a booking with missing firstname field</doc>
 <tag>API</tag>
 <tag>Booking</tag>
 <tag>CreateBooking</tag>
 <tag>Invalid</tag>
-<status status="PASS" starttime="20220201 22:40:56.771" endtime="20220201 22:40:58.394"/>
+<status status="PASS" starttime="20220201 22:57:39.064" endtime="20220201 22:57:40.236"/>
 </test>
 <test id="s1-t7" name="Create Booking With Valid Booking Data">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -288,15 +288,15 @@
 <arg>Content-Type=application/json</arg>
 <arg>Accept=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220201 22:40:58.401" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json'}</msg>
-<status status="PASS" starttime="20220201 22:40:58.399" endtime="20220201 22:40:58.401"/>
+<msg timestamp="20220201 22:57:40.237" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json'}</msg>
+<status status="PASS" starttime="20220201 22:57:40.237" endtime="20220201 22:57:40.237"/>
 </kw>
 <kw name="Load JSON From File" library="JSONLibrary">
 <var>${body_json}</var>
 <arg>${EXECDIR}/Variables/json/new_valid_booking.json</arg>
 <doc>Load JSON from file.</doc>
-<msg timestamp="20220201 22:40:58.403" level="INFO">${body_json} = {'firstname': 'Jim', 'lastname': 'Brown', 'totalprice': 111, 'depositpaid': True, 'bookingdates': {'checkin': '2018-01-01', 'checkout': '2019-01-01'}, 'additionalneeds': 'Breakfast'}</msg>
-<status status="PASS" starttime="20220201 22:40:58.401" endtime="20220201 22:40:58.403"/>
+<msg timestamp="20220201 22:57:40.238" level="INFO">${body_json} = {'firstname': 'Jim', 'lastname': 'Brown', 'totalprice': 111, 'depositpaid': True, 'bookingdates': {'checkin': '2018-01-01', 'checkout': '2019-01-01'}, 'additionalneeds': 'Breakfast'}</msg>
+<status status="PASS" starttime="20220201 22:57:40.237" endtime="20220201 22:57:40.238"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -305,43 +305,43 @@
 <arg>json=${body_json}</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220201 22:40:59.767" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/booking 
+<msg timestamp="20220201 22:57:41.404" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/booking 
  path_url=/booking 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '182'} 
  body=b'{"firstname": "Jim", "lastname": "Brown", "totalprice": 111, "depositpaid": true, "bookingdates": {"checkin": "2018-01-01", "checkout": "2019-01-01"}, "additionalneeds": "Breakfast"}' 
  </msg>
-<msg timestamp="20220201 22:40:59.768" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/booking 
+<msg timestamp="20220201 22:57:41.404" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/booking 
  status=200, reason=OK 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '195', 'Etag': 'W/"c3-51yx+oaM1CL1h404VcnaOEcqkSc"', 'Date': 'Tue, 01 Feb 2022 17:10:48 GMT', 'Via': '1.1 vegur'} 
- body={"bookingid":33,"booking":{"firstname":"Jim","lastname":"Brown","totalprice":111,"depositpaid":true,"bookingdates":{"checkin":"2018-01-01","checkout":"2019-01-01"},"additionalneeds":"Breakfast"}} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '195', 'Etag': 'W/"c3-7TrzWRVKqxD3eawQiycE4v3K8cw"', 'Date': 'Tue, 01 Feb 2022 17:27:30 GMT', 'Via': '1.1 vegur'} 
+ body={"bookingid":19,"booking":{"firstname":"Jim","lastname":"Brown","totalprice":111,"depositpaid":true,"bookingdates":{"checkin":"2018-01-01","checkout":"2019-01-01"},"additionalneeds":"Breakfast"}} 
  </msg>
-<msg timestamp="20220201 22:40:59.768" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220201 22:40:58.403" endtime="20220201 22:40:59.768"/>
+<msg timestamp="20220201 22:57:41.405" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:40.238" endtime="20220201 22:57:41.405"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:40:59.769" endtime="20220201 22:40:59.772"/>
+<status status="PASS" starttime="20220201 22:57:41.405" endtime="20220201 22:57:41.410"/>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <arg>${body_json}</arg>
 <arg>${response.json()}[booking]</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20220201 22:40:59.773" endtime="20220201 22:40:59.776"/>
+<status status="PASS" starttime="20220201 22:57:41.411" endtime="20220201 22:57:41.414"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${new_booking_id}</arg>
 <arg>${response.json()}[bookingid]</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20220201 22:40:59.782" level="INFO">${new_booking_id} = 33</msg>
-<status status="PASS" starttime="20220201 22:40:59.777" endtime="20220201 22:40:59.782"/>
+<msg timestamp="20220201 22:57:41.420" level="INFO">${new_booking_id} = 19</msg>
+<status status="PASS" starttime="20220201 22:57:41.415" endtime="20220201 22:57:41.420"/>
 </kw>
 <doc>Create (POST) a booking with valid data (to be used later in PUT, PATCH, DELETE testcases)</doc>
 <tag>API</tag>
 <tag>Booking</tag>
 <tag>CreateBooking</tag>
 <tag>Valid</tag>
-<status status="PASS" starttime="20220201 22:40:58.396" endtime="20220201 22:40:59.782"/>
+<status status="PASS" starttime="20220201 22:57:40.236" endtime="20220201 22:57:41.421"/>
 </test>
 <test id="s1-t8" name="Get Booking With Invalid Booking Id">
 <kw name="GET" library="RequestsLibrary">
@@ -349,36 +349,36 @@
 <arg>${base_url}${api}[booking]/${testdata}[invalid_booking_id]</arg>
 <arg>expected_status=404</arg>
 <doc>Sends a GET request.</doc>
-<msg timestamp="20220201 22:41:01.362" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/booking/17878 
+<msg timestamp="20220201 22:57:42.875" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/booking/17878 
  path_url=/booking/17878 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20220201 22:41:01.363" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/booking/17878 
+<msg timestamp="20220201 22:57:42.875" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/booking/17878 
  status=404, reason=Not Found 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-0gXL1ngzMqISxa6S1zx3F4wtLyg"', 'Date': 'Tue, 01 Feb 2022 17:10:49 GMT', 'Via': '1.1 vegur'} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-0gXL1ngzMqISxa6S1zx3F4wtLyg"', 'Date': 'Tue, 01 Feb 2022 17:27:31 GMT', 'Via': '1.1 vegur'} 
  body=Not Found 
  </msg>
-<msg timestamp="20220201 22:41:01.363" level="INFO">${response} = &lt;Response [404]&gt;</msg>
-<status status="PASS" starttime="20220201 22:40:59.785" endtime="20220201 22:41:01.365"/>
+<msg timestamp="20220201 22:57:42.875" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:41.424" endtime="20220201 22:57:42.875"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:41:01.365" endtime="20220201 22:41:01.366"/>
+<status status="PASS" starttime="20220201 22:57:42.876" endtime="20220201 22:57:42.876"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${response.reason}</arg>
 <arg>Not Found</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220201 22:41:01.367" endtime="20220201 22:41:01.369"/>
+<status status="PASS" starttime="20220201 22:57:42.876" endtime="20220201 22:57:42.877"/>
 </kw>
 <doc>Try to fetch (GET) booking data with invalid booking ID</doc>
 <tag>API</tag>
 <tag>Booking</tag>
 <tag>GetBooking</tag>
 <tag>Invalid</tag>
-<status status="PASS" starttime="20220201 22:40:59.783" endtime="20220201 22:41:01.370"/>
+<status status="PASS" starttime="20220201 22:57:41.422" endtime="20220201 22:57:42.877"/>
 </test>
 <test id="s1-t9" name="Update Booking With Invalid Authorization Token">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -387,15 +387,15 @@
 <arg>Accept=application/json</arg>
 <arg>Cookie=token=${testdata}[invalid_auth_token]</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220201 22:41:01.374" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Cookie': 'token=abc123'}</msg>
-<status status="PASS" starttime="20220201 22:41:01.373" endtime="20220201 22:41:01.374"/>
+<msg timestamp="20220201 22:57:42.879" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Cookie': 'token=abc123'}</msg>
+<status status="PASS" starttime="20220201 22:57:42.878" endtime="20220201 22:57:42.879"/>
 </kw>
 <kw name="Load JSON From File" library="JSONLibrary">
 <var>${body_json}</var>
 <arg>${EXECDIR}/Variables/json/update_booking.json</arg>
 <doc>Load JSON from file.</doc>
-<msg timestamp="20220201 22:41:01.377" level="INFO">${body_json} = {'firstname': 'James', 'lastname': 'Brown', 'totalprice': 111, 'depositpaid': True, 'bookingdates': {'checkin': '2018-01-01', 'checkout': '2019-01-01'}, 'additionalneeds': 'Breakfast'}</msg>
-<status status="PASS" starttime="20220201 22:41:01.375" endtime="20220201 22:41:01.377"/>
+<msg timestamp="20220201 22:57:42.880" level="INFO">${body_json} = {'firstname': 'James', 'lastname': 'Brown', 'totalprice': 111, 'depositpaid': True, 'bookingdates': {'checkin': '2018-01-01', 'checkout': '2019-01-01'}, 'additionalneeds': 'Breakfast'}</msg>
+<status status="PASS" starttime="20220201 22:57:42.879" endtime="20220201 22:57:42.880"/>
 </kw>
 <kw name="PUT" library="RequestsLibrary">
 <var>${response}</var>
@@ -404,36 +404,36 @@
 <arg>json=${body_json}</arg>
 <arg>expected_status=403</arg>
 <doc>Sends a PUT request.</doc>
-<msg timestamp="20220201 22:41:02.826" level="INFO">PUT Request : url=https://restful-booker.herokuapp.com/booking/33 
- path_url=/booking/33 
+<msg timestamp="20220201 22:57:44.101" level="INFO">PUT Request : url=https://restful-booker.herokuapp.com/booking/19 
+ path_url=/booking/19 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=abc123', 'Content-Length': '184'} 
  body=b'{"firstname": "James", "lastname": "Brown", "totalprice": 111, "depositpaid": true, "bookingdates": {"checkin": "2018-01-01", "checkout": "2019-01-01"}, "additionalneeds": "Breakfast"}' 
  </msg>
-<msg timestamp="20220201 22:41:02.826" level="INFO">PUT Response : url=https://restful-booker.herokuapp.com/booking/33 
+<msg timestamp="20220201 22:57:44.101" level="INFO">PUT Response : url=https://restful-booker.herokuapp.com/booking/19 
  status=403, reason=Forbidden 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-PatfYBLj4Um1qTm5zrukoLhNyPU"', 'Date': 'Tue, 01 Feb 2022 17:10:51 GMT', 'Via': '1.1 vegur'} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-PatfYBLj4Um1qTm5zrukoLhNyPU"', 'Date': 'Tue, 01 Feb 2022 17:27:32 GMT', 'Via': '1.1 vegur'} 
  body=Forbidden 
  </msg>
-<msg timestamp="20220201 22:41:02.827" level="INFO">${response} = &lt;Response [403]&gt;</msg>
-<status status="PASS" starttime="20220201 22:41:01.378" endtime="20220201 22:41:02.827"/>
+<msg timestamp="20220201 22:57:44.102" level="INFO">${response} = &lt;Response [403]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:42.880" endtime="20220201 22:57:44.102"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:41:02.828" endtime="20220201 22:41:02.830"/>
+<status status="PASS" starttime="20220201 22:57:44.102" endtime="20220201 22:57:44.103"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${response.reason}</arg>
 <arg>Forbidden</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220201 22:41:02.831" endtime="20220201 22:41:02.833"/>
+<status status="PASS" starttime="20220201 22:57:44.103" endtime="20220201 22:57:44.104"/>
 </kw>
 <doc>Try to update (PUT) booking data with invalid authorization token</doc>
 <tag>API</tag>
 <tag>Booking</tag>
 <tag>Invalid</tag>
 <tag>UpdateBooking</tag>
-<status status="PASS" starttime="20220201 22:41:01.371" endtime="20220201 22:41:02.834"/>
+<status status="PASS" starttime="20220201 22:57:42.878" endtime="20220201 22:57:44.104"/>
 </test>
 <test id="s1-t10" name="Update Booking With Invalid Booking Id">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -442,15 +442,15 @@
 <arg>Accept=application/json</arg>
 <arg>Cookie=token=${auth_token}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220201 22:41:02.840" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Cookie': 'token=c2d67eb563e48db'}</msg>
-<status status="PASS" starttime="20220201 22:41:02.837" endtime="20220201 22:41:02.840"/>
+<msg timestamp="20220201 22:57:44.106" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Cookie': 'token=68f24a46039807e'}</msg>
+<status status="PASS" starttime="20220201 22:57:44.106" endtime="20220201 22:57:44.106"/>
 </kw>
 <kw name="Load JSON From File" library="JSONLibrary">
 <var>${body_json}</var>
 <arg>${EXECDIR}/Variables/json/update_booking.json</arg>
 <doc>Load JSON from file.</doc>
-<msg timestamp="20220201 22:41:02.841" level="INFO">${body_json} = {'firstname': 'James', 'lastname': 'Brown', 'totalprice': 111, 'depositpaid': True, 'bookingdates': {'checkin': '2018-01-01', 'checkout': '2019-01-01'}, 'additionalneeds': 'Breakfast'}</msg>
-<status status="PASS" starttime="20220201 22:41:02.840" endtime="20220201 22:41:02.841"/>
+<msg timestamp="20220201 22:57:44.107" level="INFO">${body_json} = {'firstname': 'James', 'lastname': 'Brown', 'totalprice': 111, 'depositpaid': True, 'bookingdates': {'checkin': '2018-01-01', 'checkout': '2019-01-01'}, 'additionalneeds': 'Breakfast'}</msg>
+<status status="PASS" starttime="20220201 22:57:44.107" endtime="20220201 22:57:44.107"/>
 </kw>
 <kw name="PUT" library="RequestsLibrary">
 <var>${response}</var>
@@ -459,36 +459,36 @@
 <arg>json=${body_json}</arg>
 <arg>expected_status=405</arg>
 <doc>Sends a PUT request.</doc>
-<msg timestamp="20220201 22:41:04.219" level="INFO">PUT Request : url=https://restful-booker.herokuapp.com/booking/17878 
+<msg timestamp="20220201 22:57:45.282" level="INFO">PUT Request : url=https://restful-booker.herokuapp.com/booking/17878 
  path_url=/booking/17878 
- headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=c2d67eb563e48db', 'Content-Length': '184'} 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=68f24a46039807e', 'Content-Length': '184'} 
  body=b'{"firstname": "James", "lastname": "Brown", "totalprice": 111, "depositpaid": true, "bookingdates": {"checkin": "2018-01-01", "checkout": "2019-01-01"}, "additionalneeds": "Breakfast"}' 
  </msg>
-<msg timestamp="20220201 22:41:04.220" level="INFO">PUT Response : url=https://restful-booker.herokuapp.com/booking/17878 
+<msg timestamp="20220201 22:57:45.282" level="INFO">PUT Response : url=https://restful-booker.herokuapp.com/booking/17878 
  status=405, reason=Method Not Allowed 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '18', 'Etag': 'W/"12-UGJMK66P4abaBlq0vKHJaCKuGCA"', 'Date': 'Tue, 01 Feb 2022 17:10:52 GMT', 'Via': '1.1 vegur'} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '18', 'Etag': 'W/"12-UGJMK66P4abaBlq0vKHJaCKuGCA"', 'Date': 'Tue, 01 Feb 2022 17:27:33 GMT', 'Via': '1.1 vegur'} 
  body=Method Not Allowed 
  </msg>
-<msg timestamp="20220201 22:41:04.220" level="INFO">${response} = &lt;Response [405]&gt;</msg>
-<status status="PASS" starttime="20220201 22:41:02.842" endtime="20220201 22:41:04.221"/>
+<msg timestamp="20220201 22:57:45.283" level="INFO">${response} = &lt;Response [405]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:44.107" endtime="20220201 22:57:45.283"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:41:04.221" endtime="20220201 22:41:04.224"/>
+<status status="PASS" starttime="20220201 22:57:45.284" endtime="20220201 22:57:45.287"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${response.reason}</arg>
 <arg>Method Not Allowed</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220201 22:41:04.224" endtime="20220201 22:41:04.228"/>
+<status status="PASS" starttime="20220201 22:57:45.287" endtime="20220201 22:57:45.291"/>
 </kw>
 <doc>Try to update (PUT) booking data with invalid booking ID</doc>
 <tag>API</tag>
 <tag>Booking</tag>
 <tag>Invalid</tag>
 <tag>UpdateBooking</tag>
-<status status="PASS" starttime="20220201 22:41:02.835" endtime="20220201 22:41:04.229"/>
+<status status="PASS" starttime="20220201 22:57:44.105" endtime="20220201 22:57:45.292"/>
 </test>
 <test id="s1-t11" name="Partial Update Booking With Invalid Authorization Token">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -497,15 +497,15 @@
 <arg>Accept=application/json</arg>
 <arg>Cookie=token=${testdata}[invalid_auth_token]</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220201 22:41:04.235" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Cookie': 'token=abc123'}</msg>
-<status status="PASS" starttime="20220201 22:41:04.233" endtime="20220201 22:41:04.235"/>
+<msg timestamp="20220201 22:57:45.298" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Cookie': 'token=abc123'}</msg>
+<status status="PASS" starttime="20220201 22:57:45.296" endtime="20220201 22:57:45.298"/>
 </kw>
 <kw name="Load JSON From File" library="JSONLibrary">
 <var>${body_json}</var>
 <arg>${EXECDIR}/Variables/json/partialupdate_booking.json</arg>
 <doc>Load JSON from file.</doc>
-<msg timestamp="20220201 22:41:04.238" level="INFO">${body_json} = {'firstname': 'James', 'lastname': 'Brown'}</msg>
-<status status="PASS" starttime="20220201 22:41:04.236" endtime="20220201 22:41:04.238"/>
+<msg timestamp="20220201 22:57:45.301" level="INFO">${body_json} = {'firstname': 'James', 'lastname': 'Brown'}</msg>
+<status status="PASS" starttime="20220201 22:57:45.299" endtime="20220201 22:57:45.301"/>
 </kw>
 <kw name="PATCH" library="RequestsLibrary">
 <var>${response}</var>
@@ -514,36 +514,36 @@
 <arg>json=${body_json}</arg>
 <arg>expected_status=403</arg>
 <doc>Sends a PUT request.</doc>
-<msg timestamp="20220201 22:41:05.586" level="INFO">PATCH Request : url=https://restful-booker.herokuapp.com/booking/33 
- path_url=/booking/33 
+<msg timestamp="20220201 22:57:46.482" level="INFO">PATCH Request : url=https://restful-booker.herokuapp.com/booking/19 
+ path_url=/booking/19 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=abc123', 'Content-Length': '43'} 
  body=b'{"firstname": "James", "lastname": "Brown"}' 
  </msg>
-<msg timestamp="20220201 22:41:05.587" level="INFO">PATCH Response : url=https://restful-booker.herokuapp.com/booking/33 
+<msg timestamp="20220201 22:57:46.482" level="INFO">PATCH Response : url=https://restful-booker.herokuapp.com/booking/19 
  status=403, reason=Forbidden 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-PatfYBLj4Um1qTm5zrukoLhNyPU"', 'Date': 'Tue, 01 Feb 2022 17:10:54 GMT', 'Via': '1.1 vegur'} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-PatfYBLj4Um1qTm5zrukoLhNyPU"', 'Date': 'Tue, 01 Feb 2022 17:27:35 GMT', 'Via': '1.1 vegur'} 
  body=Forbidden 
  </msg>
-<msg timestamp="20220201 22:41:05.587" level="INFO">${response} = &lt;Response [403]&gt;</msg>
-<status status="PASS" starttime="20220201 22:41:04.239" endtime="20220201 22:41:05.587"/>
+<msg timestamp="20220201 22:57:46.483" level="INFO">${response} = &lt;Response [403]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:45.302" endtime="20220201 22:57:46.483"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:41:05.587" endtime="20220201 22:41:05.588"/>
+<status status="PASS" starttime="20220201 22:57:46.483" endtime="20220201 22:57:46.486"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${response.reason}</arg>
 <arg>Forbidden</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220201 22:41:05.588" endtime="20220201 22:41:05.589"/>
+<status status="PASS" starttime="20220201 22:57:46.486" endtime="20220201 22:57:46.489"/>
 </kw>
 <doc>Try to partially update (PATCH) booking data with invalid authorization token</doc>
 <tag>API</tag>
 <tag>Booking</tag>
 <tag>Invalid</tag>
 <tag>PartialUpdateBooking</tag>
-<status status="PASS" starttime="20220201 22:41:04.231" endtime="20220201 22:41:05.589"/>
+<status status="PASS" starttime="20220201 22:57:45.293" endtime="20220201 22:57:46.490"/>
 </test>
 <test id="s1-t12" name="Partial Update Booking With Invalid Booking Id">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -552,15 +552,15 @@
 <arg>Accept=application/json</arg>
 <arg>Cookie=token=${auth_token}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220201 22:41:05.591" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Cookie': 'token=c2d67eb563e48db'}</msg>
-<status status="PASS" starttime="20220201 22:41:05.590" endtime="20220201 22:41:05.591"/>
+<msg timestamp="20220201 22:57:46.496" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Cookie': 'token=68f24a46039807e'}</msg>
+<status status="PASS" starttime="20220201 22:57:46.494" endtime="20220201 22:57:46.496"/>
 </kw>
 <kw name="Load JSON From File" library="JSONLibrary">
 <var>${body_json}</var>
 <arg>${EXECDIR}/Variables/json/partialupdate_booking.json</arg>
 <doc>Load JSON from file.</doc>
-<msg timestamp="20220201 22:41:05.592" level="INFO">${body_json} = {'firstname': 'James', 'lastname': 'Brown'}</msg>
-<status status="PASS" starttime="20220201 22:41:05.591" endtime="20220201 22:41:05.592"/>
+<msg timestamp="20220201 22:57:46.498" level="INFO">${body_json} = {'firstname': 'James', 'lastname': 'Brown'}</msg>
+<status status="PASS" starttime="20220201 22:57:46.497" endtime="20220201 22:57:46.498"/>
 </kw>
 <kw name="PATCH" library="RequestsLibrary">
 <var>${response}</var>
@@ -569,36 +569,36 @@
 <arg>json=${body_json}</arg>
 <arg>expected_status=405</arg>
 <doc>Sends a PUT request.</doc>
-<msg timestamp="20220201 22:41:07.001" level="INFO">PATCH Request : url=https://restful-booker.herokuapp.com/booking/17878 
+<msg timestamp="20220201 22:57:47.718" level="INFO">PATCH Request : url=https://restful-booker.herokuapp.com/booking/17878 
  path_url=/booking/17878 
- headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=c2d67eb563e48db', 'Content-Length': '43'} 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=68f24a46039807e', 'Content-Length': '43'} 
  body=b'{"firstname": "James", "lastname": "Brown"}' 
  </msg>
-<msg timestamp="20220201 22:41:07.002" level="INFO">PATCH Response : url=https://restful-booker.herokuapp.com/booking/17878 
+<msg timestamp="20220201 22:57:47.718" level="INFO">PATCH Response : url=https://restful-booker.herokuapp.com/booking/17878 
  status=405, reason=Method Not Allowed 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '18', 'Etag': 'W/"12-UGJMK66P4abaBlq0vKHJaCKuGCA"', 'Date': 'Tue, 01 Feb 2022 17:10:55 GMT', 'Via': '1.1 vegur'} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '18', 'Etag': 'W/"12-UGJMK66P4abaBlq0vKHJaCKuGCA"', 'Date': 'Tue, 01 Feb 2022 17:27:36 GMT', 'Via': '1.1 vegur'} 
  body=Method Not Allowed 
  </msg>
-<msg timestamp="20220201 22:41:07.004" level="INFO">${response} = &lt;Response [405]&gt;</msg>
-<status status="PASS" starttime="20220201 22:41:05.592" endtime="20220201 22:41:07.004"/>
+<msg timestamp="20220201 22:57:47.720" level="INFO">${response} = &lt;Response [405]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:46.499" endtime="20220201 22:57:47.720"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:41:07.005" endtime="20220201 22:41:07.006"/>
+<status status="PASS" starttime="20220201 22:57:47.720" endtime="20220201 22:57:47.720"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${response.reason}</arg>
 <arg>Method Not Allowed</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220201 22:41:07.007" endtime="20220201 22:41:07.010"/>
+<status status="PASS" starttime="20220201 22:57:47.721" endtime="20220201 22:57:47.722"/>
 </kw>
 <doc>Try to partially update (PATCH) booking data with invalid booking ID</doc>
 <tag>API</tag>
 <tag>Booking</tag>
 <tag>Invalid</tag>
 <tag>PartialUpdateBooking</tag>
-<status status="PASS" starttime="20220201 22:41:05.589" endtime="20220201 22:41:07.011"/>
+<status status="PASS" starttime="20220201 22:57:46.491" endtime="20220201 22:57:47.722"/>
 </test>
 <test id="s1-t13" name="Delete Booking With Invalid Authorization Token">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -607,8 +607,8 @@
 <arg>Accept=application/json</arg>
 <arg>Cookie=token=${testdata}[invalid_auth_token]</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220201 22:41:07.017" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Cookie': 'token=abc123'}</msg>
-<status status="PASS" starttime="20220201 22:41:07.015" endtime="20220201 22:41:07.017"/>
+<msg timestamp="20220201 22:57:47.723" level="INFO">${headers} = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Cookie': 'token=abc123'}</msg>
+<status status="PASS" starttime="20220201 22:57:47.723" endtime="20220201 22:57:47.724"/>
 </kw>
 <kw name="DELETE" library="RequestsLibrary">
 <var>${response}</var>
@@ -616,36 +616,36 @@
 <arg>headers=${headers}</arg>
 <arg>expected_status=403</arg>
 <doc>Sends a DELETE request.</doc>
-<msg timestamp="20220201 22:41:08.345" level="INFO">DELETE Request : url=https://restful-booker.herokuapp.com/booking/33 
- path_url=/booking/33 
+<msg timestamp="20220201 22:57:49.220" level="INFO">DELETE Request : url=https://restful-booker.herokuapp.com/booking/19 
+ path_url=/booking/19 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=abc123', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg timestamp="20220201 22:41:08.345" level="INFO">DELETE Response : url=https://restful-booker.herokuapp.com/booking/33 
+<msg timestamp="20220201 22:57:49.220" level="INFO">DELETE Response : url=https://restful-booker.herokuapp.com/booking/19 
  status=403, reason=Forbidden 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-PatfYBLj4Um1qTm5zrukoLhNyPU"', 'Date': 'Tue, 01 Feb 2022 17:10:56 GMT', 'Via': '1.1 vegur'} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-PatfYBLj4Um1qTm5zrukoLhNyPU"', 'Date': 'Tue, 01 Feb 2022 17:27:37 GMT', 'Via': '1.1 vegur'} 
  body=Forbidden 
  </msg>
-<msg timestamp="20220201 22:41:08.345" level="INFO">${response} = &lt;Response [403]&gt;</msg>
-<status status="PASS" starttime="20220201 22:41:07.018" endtime="20220201 22:41:08.345"/>
+<msg timestamp="20220201 22:57:49.221" level="INFO">${response} = &lt;Response [403]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:47.724" endtime="20220201 22:57:49.221"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:41:08.346" endtime="20220201 22:41:08.347"/>
+<status status="PASS" starttime="20220201 22:57:49.222" endtime="20220201 22:57:49.223"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${response.reason}</arg>
 <arg>Forbidden</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220201 22:41:08.347" endtime="20220201 22:41:08.349"/>
+<status status="PASS" starttime="20220201 22:57:49.224" endtime="20220201 22:57:49.227"/>
 </kw>
 <doc>Try to delete (DELETE) booking data with invalid authorization token</doc>
 <tag>API</tag>
 <tag>Booking</tag>
 <tag>DeleteBooking</tag>
 <tag>Invalid</tag>
-<status status="PASS" starttime="20220201 22:41:07.012" endtime="20220201 22:41:08.350"/>
+<status status="PASS" starttime="20220201 22:57:47.722" endtime="20220201 22:57:49.227"/>
 </test>
 <test id="s1-t14" name="Delete Booking With Invalid Booking Id">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -653,8 +653,8 @@
 <arg>Content-Type=application/json</arg>
 <arg>Cookie=token=${auth_token}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220201 22:41:08.354" level="INFO">${headers} = {'Content-Type': 'application/json', 'Cookie': 'token=c2d67eb563e48db'}</msg>
-<status status="PASS" starttime="20220201 22:41:08.352" endtime="20220201 22:41:08.354"/>
+<msg timestamp="20220201 22:57:49.230" level="INFO">${headers} = {'Content-Type': 'application/json', 'Cookie': 'token=68f24a46039807e'}</msg>
+<status status="PASS" starttime="20220201 22:57:49.229" endtime="20220201 22:57:49.230"/>
 </kw>
 <kw name="DELETE" library="RequestsLibrary">
 <var>${response}</var>
@@ -662,38 +662,38 @@
 <arg>headers=${headers}</arg>
 <arg>expected_status=405</arg>
 <doc>Sends a DELETE request.</doc>
-<msg timestamp="20220201 22:41:09.725" level="INFO">DELETE Request : url=https://restful-booker.herokuapp.com/booking/17878 
+<msg timestamp="20220201 22:57:50.675" level="INFO">DELETE Request : url=https://restful-booker.herokuapp.com/booking/17878 
  path_url=/booking/17878 
- headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=c2d67eb563e48db', 'Content-Length': '0'} 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=68f24a46039807e', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg timestamp="20220201 22:41:09.725" level="INFO">DELETE Response : url=https://restful-booker.herokuapp.com/booking/17878 
+<msg timestamp="20220201 22:57:50.676" level="INFO">DELETE Response : url=https://restful-booker.herokuapp.com/booking/17878 
  status=405, reason=Method Not Allowed 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '18', 'Etag': 'W/"12-UGJMK66P4abaBlq0vKHJaCKuGCA"', 'Date': 'Tue, 01 Feb 2022 17:10:58 GMT', 'Via': '1.1 vegur'} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '18', 'Etag': 'W/"12-UGJMK66P4abaBlq0vKHJaCKuGCA"', 'Date': 'Tue, 01 Feb 2022 17:27:39 GMT', 'Via': '1.1 vegur'} 
  body=Method Not Allowed 
  </msg>
-<msg timestamp="20220201 22:41:09.726" level="INFO">${response} = &lt;Response [405]&gt;</msg>
-<status status="PASS" starttime="20220201 22:41:08.354" endtime="20220201 22:41:09.726"/>
+<msg timestamp="20220201 22:57:50.677" level="INFO">${response} = &lt;Response [405]&gt;</msg>
+<status status="PASS" starttime="20220201 22:57:49.231" endtime="20220201 22:57:50.677"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220201 22:41:09.727" endtime="20220201 22:41:09.729"/>
+<status status="PASS" starttime="20220201 22:57:50.677" endtime="20220201 22:57:50.679"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${response.reason}</arg>
 <arg>Method Not Allowed</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220201 22:41:09.730" endtime="20220201 22:41:09.733"/>
+<status status="PASS" starttime="20220201 22:57:50.680" endtime="20220201 22:57:50.683"/>
 </kw>
 <doc>Try to delete (DELETE) booking data with invalid booking ID</doc>
 <tag>API</tag>
 <tag>Booking</tag>
 <tag>DeleteBooking</tag>
 <tag>Invalid</tag>
-<status status="PASS" starttime="20220201 22:41:08.351" endtime="20220201 22:41:09.734"/>
+<status status="PASS" starttime="20220201 22:57:49.228" endtime="20220201 22:57:50.684"/>
 </test>
-<status status="PASS" starttime="20220201 22:40:49.648" endtime="20220201 22:41:09.739"/>
+<status status="PASS" starttime="20220201 22:57:32.565" endtime="20220201 22:57:50.688"/>
 </suite>
 <statistics>
 <total>
