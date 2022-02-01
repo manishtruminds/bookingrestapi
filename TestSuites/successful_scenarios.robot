@@ -3,6 +3,7 @@ Variables        ../Variables/env.yaml
 Variables        ../Variables/endpoints.yaml
 Variables        ../Variables/testdata.yaml
 
+<<<<<<< HEAD
 Library         RequestsLibrary
 Library         OperatingSystem
 Library         JSONLibrary
@@ -65,10 +66,44 @@ CreateBooking
     Should be equal  ${getHeaderValue}  application/json; charset=utf-8
 
     Set Suite Variable    ${new_booking_id}    ${response.json()}[bookingid]
+=======
+Library         REST    ${env}[base_url]
+
+*** Variables ***
+
+
+*** Test Cases ***
+
+HealthCheck
+    [Tags]    API    Valid    Ping    HealthCheck
+    GET    ${api}[ping]
+    Output   response body
+    Integer    response status    201
+
+CreateToken
+    [Tags]    API    Valid    Auth    CreateToken
+    [Documentation]
+    POST    ${api}[auth]    { "username" : "${env}[admin_username]", "password" : "${env}[admin_password]" }
+    Output   response body
+    Integer    response status    200
+
+CreateBooking
+    [Tags]    API    Valid    Booking    CreateBooking
+    [Documentation]
+
+DeleteBooking
+    [Tags]    API    Valid    Booking    DeleteBooking
+    [Documentation]
+
+GetBooking
+    [Tags]    API    Valid    Booking    GetBooking
+    [Documentation]
+>>>>>>> 4c7e8ea3362fb9a94168dfc35f38f2b5ece31781
 
 GetBookingIds
     [Tags]    API    Valid    Booking    GetBookingIds
     [Documentation]
+<<<<<<< HEAD
     ${response}=    GET   ${base_url}${api}[booking]
     ...     expected_status=200
     Log    ${response.json()}
@@ -104,11 +139,14 @@ UpdateBooking
     ...       expected_status=200
     Should Be Equal    ${json_obj}    ${new_booking.json()}
 
+=======
+>>>>>>> 4c7e8ea3362fb9a94168dfc35f38f2b5ece31781
 
 PartialUpdateBooking
     [Tags]    API    Valid    Booking    PartialUpdateBooking
     [Documentation]
 
+<<<<<<< HEAD
     ${headers}=   Create Dictionary    Content-Type=application/json
     ...     Accept=application/json    Cookie=token=${token}
     ${data}=      Create Dictionary    firstname=Joseph   lastname=Maleno
@@ -145,3 +183,8 @@ DeleteBooking
     ${new_booking}=    GET    ${base_url}${api}[booking]/${new_booking_id}
     ...     expected_status=404
     Log    ${new_booking}
+=======
+UpdateBooking
+    [Tags]    API    Valid    Booking    UpdateBooking
+    [Documentation]
+>>>>>>> 4c7e8ea3362fb9a94168dfc35f38f2b5ece31781
