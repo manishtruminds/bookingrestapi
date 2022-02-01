@@ -1,2 +1,5 @@
 testdata:
-  
+  invalid_admin_username: abc
+  invalid_admin_password: 123
+  invalid_booking_id:    17878
+  invalid_auth_token:    abc123

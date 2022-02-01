@@ -1,126 +1,169 @@
 *** Settings ***
+Library          RequestsLibrary
+Library          JSONLibrary
+Library    Collections
 Variables        ../Variables/env.yaml
 Variables        ../Variables/endpoints.yaml
 Variables        ../Variables/testdata.yaml
 
-Library         REST    ${env}[base_url]
-
 *** Variables ***
-${valid_booking_id}=    18
-${invalid_booking_id}=    1787878
+${base_url}    ${env}[base_url]
 
 *** Test Cases ***
-
 Health Check
     [Tags]    API    Invalid    Ping    HealthCheck
-    GET    ${api}[ping]
-    Output   response
-    Integer    response status    201
-    String    response reason    Created
+    ${response}=    GET    ${base_url}${api}[ping]    expected_status=201
+    Log To Console    ${response}
 
-Bad Request Health Check
+Invalid Health Check Request
     [Tags]    API    Invalid    Ping    HealthCheck
-    POST    ${api}[ping]
-    Output   response
-    Integer    response status    404
-    String    response reason    Not Found
+    ${response}=    POST    ${base_url}${api}[ping]    expected_status=404
+    Log To Console    ${response}
+    Should Be Equal As Strings    ${response.reason}    Not Found
 
-CreateToken
+Create Token With Valid Credentials
     [Tags]    API    Valid    Auth    CreateToken
-    [Documentation]
-    POST    ${api}[auth]    body={ "username" : "${env}[admin_username]", "password" : "${env}[admin_password]" }
-    Output   response body
-    Integer    response status    200
+    ${headers}=    Create Dictionary    Content-Type=application/json
+    ${body_json}=    Create Dictionary    username=${env}[admin_username]    password=${env}[admin_password]
+    ${response}=    POST    ${base_url}${api}[auth]
+    ...    headers=${headers}
+    ...    json=${body_json}
+    ...    expected_status=200
 
-    ${token}=    Output   response body token
-    Log    ${token}
-    Set Suite Variable    ${auth_token}    ${token}
+    Log To Console    ${response.json()}
+
+    ${keys} =    Get Dictionary Keys    ${response.json()}
+    Should Contain    ${keys}    token
+
+    Set Suite Variable    ${auth_token}    ${response.json()}[token]
 
 Create Token With Invalid Credentials
     [Tags]    API    Invalid    Auth    CreateToken
-    [Documentation]
-    POST    ${api}[auth]    body={ "username" : "abc", "password" : "123" }
-    Output   response
-    Object    response body
-    Integer    response status    200
-    String    response reason    OK
-    String    response body reason    Bad credentials
+    ${headers}=    Create Dictionary    Content-Type=application/json
+    ${body_json}=    Create Dictionary    username=${testdata}[invalid_admin_username]    password=${testdata}[invalid_admin_password]
+    ${response}=    POST    ${base_url}${api}[auth]
+    ...    headers=${headers}
+    ...    json=${body_json}
+    ...    expected_status=200
 
-Create Booking
+    Log To Console    ${response.json()}
+    Should Be Equal As Strings    ${response.json()}[reason]    Bad credentials
+
+Create Booking With Missing Booking FirstName Field
     [Tags]    API    Invalid    Booking    CreateBooking
-    [Documentation]
+    ${headers}=    Create Dictionary    Content-Type=application/json    Accept=application/json
+    ${body_json}=    Load JSON From File    ${EXECDIR}/Variables/json/new_invalid_booking.json
+    ${response}=    POST    ${base_url}${api}[booking]
+    ...    headers=${headers}
+    ...    json=${body_json}
+    ...    expected_status=500
 
-    # 418 I'm a teapot
-    POST    ${api}[booking]    body=${EXECDIR}/Variables/new_booking.json
-    Output
-    Object    response body
-    Integer    response status    200
-    String    response reason    OK
+    Log To Console    ${response}
+    Should Be Equal As Strings    ${response.reason}    Internal Server Error
 
-Get Booking With Invalid Id
+Create Booking With Valid Booking Data
+    [Tags]    API    Valid    Booking    CreateBooking
+    ${headers}=    Create Dictionary    Content-Type=application/json    Accept=application/json
+    ${body_json}=    Load JSON From File    ${EXECDIR}/Variables/json/new_valid_booking.json
+    ${response}=    POST    ${base_url}${api}[booking]
+    ...    headers=${headers}
+    ...    json=${body_json}
+    ...    expected_status=200
+
+    Log To Console    ${response.json()}
+
+    Should Be Equal    ${body_json}    ${response.json()}[booking]
+
+    Set Suite Variable    ${new_booking_id}    ${response.json()}[bookingid]
+
+Get Booking With Invalid Booking Id
     [Tags]    API    Invalid    Booking    GetBooking
     [Documentation]
-    GET    ${api}[booking]/${invalid_booking_id}
-    Output
-    Integer    response status    404
-    String    response reason    Not Found
+    ${response}=    GET    ${base_url}${api}[booking]/${testdata}[invalid_booking_id]   expected_status=404
 
-Bad Get Booking Ids Request
-    [Tags]    API    Invalid    Booking    GetBookingIds
-    [Documentation]
+    Log To Console    ${response}
+    Should Be Equal As Strings    ${response.reason}    Not Found
 
-    POST    ${api}[booking]
-    Output    response
-    Integer    response status    500
-    String    response reason    Internal Server Error
-    String    response body    Internal Server Error
-
-UpdateBooking
+Update Booking With Invalid Authorization Token
     [Tags]    API    Invalid    Booking    UpdateBooking
-    [Documentation]
+    ${headers}=    Create Dictionary
+    ...    Content-Type=application/json    Accept=application/json
+    ...    Cookie=token=${testdata}[invalid_auth_token]
 
-    # 418 I'm a teapot
+    ${body_json}=    Load JSON From File    ${EXECDIR}/Variables/json/update_booking.json
+    ${response}=    PUT    ${base_url}${api}[booking]/${new_booking_id}
+    ...    headers=${headers}
+    ...    json=${body_json}
+    ...    expected_status=403
 
-    # Log To Console    ${auth_token}
-    PUT    ${api}[booking]/${valid_booking_id}
-    ...    headers={"Cookie": "token=${auth_token}"}    body=${EXECDIR}/Variables/update_booking.json
+    Log To Console    ${response}
 
-    Output
-    Object    response body
-    Integer    response status    200
-    String    response reason    OK
+    Should Be Equal As Strings    ${response.reason}    Forbidden
 
-PartialUpdateBooking
+Update Booking With Invalid Booking Id
+    [Tags]    API    Invalid    Booking    UpdateBooking
+    ${headers}=    Create Dictionary    Content-Type=application/json    Accept=application/json    Cookie=token=${auth_token}
+    ${body_json}=    Load JSON From File    ${EXECDIR}/Variables/json/update_booking.json
+    ${response}=    PUT    ${base_url}${api}[booking]/${testdata}[invalid_booking_id]
+    ...    headers=${headers}
+    ...    json=${body_json}
+    ...    expected_status=405
+
+    Log To Console    ${response}
+
+    Should Be Equal As Strings    ${response.reason}    Method Not Allowed
+
+Partial Update Booking With Invalid Authorization Token
     [Tags]    API    Invalid    Booking    PartialUpdateBooking
-    [Documentation]
+    
+    ${headers}=    Create Dictionary
+    ...    Content-Type=application/json    Accept=application/json
+    ...    Cookie=token=${testdata}[invalid_auth_token]
 
-    # Log To Console    ${auth_token}
-    PATCH    ${api}[booking]/${valid_booking_id}
-    ...    headers={"Cookie": "token=${auth_token}"}    body=${EXECDIR}/Variables/partialupdate_booking.json
+    ${body_json}=    Load JSON From File    ${EXECDIR}/Variables/json/partialupdate_booking.json
+    ${response}=    PATCH    ${base_url}${api}[booking]/${new_booking_id}
+    ...    headers=${headers}
+    ...    json=${body_json}
+    ...    expected_status=403
 
-    Output
-    Integer    response status    500
-    String    response reason    Internal Server Error
-    String    response body    Internal Server Error
+    Log To Console    ${response}
 
-# DeleteBooking
-#     [Tags]    API    Invalid    Booking    DeleteBooking
-#     [Documentation]
+    Should Be Equal As Strings    ${response.reason}    Forbidden
 
-#     DELETE    ${api}[booking]/${valid_booking_id}
-#     ...    headers={"Cookie": "token=${auth_token}"}
+Partial Update Booking With Invalid Booking Id
+    [Tags]    API    Invalid    Booking    PartialUpdateBooking
+    ${headers}=    Create Dictionary    Content-Type=application/json    Accept=application/json    Cookie=token=${auth_token}
+    ${body_json}=    Load JSON From File    ${EXECDIR}/Variables/json/partialupdate_booking.json
+    ${response}=    PATCH    ${base_url}${api}[booking]/${testdata}[invalid_booking_id]
+    ...    headers=${headers}
+    ...    json=${body_json}
+    ...    expected_status=405
 
-#     Output
-#     Integer    response status    201
-#     String    response reason    Created
+    Log To Console    ${response}
 
-Delete Booking With Invalid Invalid Id
+    Should Be Equal As Strings    ${response.reason}    Method Not Allowed
+
+Delete Booking With Invalid Authorization Token
     [Tags]    API    Invalid    Booking    DeleteBooking
-    [Documentation]
+    ${headers}=    Create Dictionary
+    ...    Content-Type=application/json    Accept=application/json
+    ...    Cookie=token=${testdata}[invalid_auth_token]
 
-    DELETE    ${api}[booking]/${invalid_booking_id}
-    ...    headers={"Cookie": "token=${auth_token}"}
+    ${response}=    DELETE    ${base_url}${api}[booking]/${new_booking_id}
+    ...    headers=${headers}
+    ...    expected_status=403
 
-    Output
-    Integer    response status    405
-    String    response reason    Method Not Allowed
+    Log To Console    ${response}
+
+    Should Be Equal As Strings    ${response.reason}    Forbidden
+
+Delete Booking With Invalid Booking Id
+    [Tags]    API    Invalid    Booking    DeleteBooking
+    ${headers}=    Create Dictionary    Content-Type=application/json    Cookie=token=${auth_token}
+    ${response}=    DELETE    ${base_url}${api}[booking]/${testdata}[invalid_booking_id]
+    ...    headers=${headers}
+    ...    expected_status=405
+
+    Log To Console    ${response}
+
+    Should Be Equal As Strings    ${response.reason}    Method Not Allowed
