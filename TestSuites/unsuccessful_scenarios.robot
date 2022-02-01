@@ -17,6 +17,14 @@ Health Check
     ${response}=    GET    ${base_url}${api}[ping]    expected_status=201
     Log To Console    ${response}
 
+Invalid Ping Endpoint Request
+    [Tags]    API    Invalid    Ping    InvalidEndpoint
+    [Documentation]    Try to send a request to an invalid endpoint
+    ${response}=    GET    ${base_url}${api}[ping]1    expected_status=404
+    Log To Console    ${response}
+    Should Be Equal As Strings    ${response.reason}    Not Found
+
+
 Invalid Health Check Request
     [Tags]    API    Invalid    Ping    HealthCheck
     [Documentation]    Try to send a POST request to /ping instead of GET
