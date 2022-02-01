@@ -83,10 +83,6 @@ GetBooking
     ${json_obj}=       load json from file     ${EXECDIR}/Variables/test_data.json
     Should Be Equal    ${json_obj}    ${response.json()}
 
-    #Check the value of the header Content-Type
-    ${getHeaderValue}=  Get From Dictionary  ${response.headers}  Content-Type
-    Should be equal  ${getHeaderValue}  application/json; charset=utf-8
-
 UpdateBooking
     [Tags]    API    Valid    Booking    UpdateBooking
     [Documentation]
@@ -103,11 +99,11 @@ UpdateBooking
 
     #check bookinginformation is correct in response
     ${json_obj}=       load json from file     ${EXECDIR}/Variables/updated_data.json
-    Should Be Equal    ${json_obj}    ${response.json()}
 
-    #Check the value of the header Content-Type
-    ${getHeaderValue}=  Get From Dictionary  ${response.headers}  Content-Type
-    Should be equal  ${getHeaderValue}  application/json; charset=utf-8
+    ${new_booking}=    GET    ${base_url}${api}[booking]/${new_booking_id}
+    ...       expected_status=200
+    Should Be Equal    ${json_obj}    ${new_booking.json()}
+
 
 PartialUpdateBooking
     [Tags]    API    Valid    Booking    PartialUpdateBooking
@@ -124,16 +120,16 @@ PartialUpdateBooking
 
 
     #check bookinginformation is correct in response
-    ${firstname}=  Set Variable    ${response.json()}[firstname]
-    ${lastname}=  Set Variable     ${response.json()}[lastname]
-    Log    ${firstname}
-    Log    ${lastname}
+    ${new_booking}=    GET    ${base_url}${api}[booking]/${new_booking_id}
+    ...       expected_status=200
+
+    ${firstname}=  Set Variable     ${new_booking.json()}[firstname]
+    ${lastname}=   Set Variable     ${new_booking.json()}[lastname]
+
     Should be equal  ${firstname}  ${data}[firstname]
     Should be equal  ${lastname}  ${data}[lastname]
 
-    #Check the value of the header Content-Type
-    ${getHeaderValue}=  Get From Dictionary  ${response.headers}  Content-Type
-    Should be equal  ${getHeaderValue}  application/json; charset=utf-8
+
 
 DeleteBooking
     [Tags]    API    Valid    Booking     DeleteBooking
@@ -145,3 +141,7 @@ DeleteBooking
     ...     expected_status=201
 
     Should Be Equal As Strings    Created    ${response.content}
+
+    ${new_booking}=    GET    ${base_url}${api}[booking]/${new_booking_id}
+    ...     expected_status=404
+    Log    ${new_booking}
