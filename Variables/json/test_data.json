@@ -1,11 +1,50 @@
 {
-  "firstname" : "Jim",
-  "lastname" : "Brown",
-  "totalprice" : 111,
-  "depositpaid" : true,
-  "bookingdates" : {
-      "checkin" : "2018-01-01",
-      "checkout" : "2019-01-01"
+  "booking1":
+  {
+    "firstname" : "Jim",
+    "lastname" : "Brown",
+    "totalprice" : 111,
+    "depositpaid" : true,
+    "bookingdates" : {
+        "checkin" : "2018-01-01",
+        "checkout" : "2019-01-01"
+    },
+    "additionalneeds" : "Breakfast"
   },
-  "additionalneeds" : "Breakfast"
+  "booking2":
+  {
+    "firstname" : "Elon",
+    "lastname" : "Bieber",
+    "totalprice" : 1101,
+    "depositpaid" : true,
+    "bookingdates" : {
+        "checkin" : "2022-02-01",
+        "checkout" : "2022-01-09"
+    },
+    "additionalneeds" : "Breakfast"
+  },
+  "booking3":
+  {
+    "firstname" : "Raj",
+    "lastname" : "Malhotra",
+    "totalprice" : 2900,
+    "depositpaid" : false,
+    "bookingdates" : {
+        "checkin" : "2022-01-01",
+        "checkout" : "2022-02-09"
+    },
+    "additionalneeds" : "Breakfast"
+  },
+  "booking4":
+  {
+    "firstname" : "Rhea",
+    "lastname" : "Malhotra",
+    "totalprice" : 1900,
+    "depositpaid" : true,
+    "bookingdates" : {
+        "checkin" : "2022-01-01",
+        "checkout" : "2022-02-09"
+    },
+    "additionalneeds" : "Breakfast"
+  }
 }
